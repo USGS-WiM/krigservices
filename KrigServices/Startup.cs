@@ -8,7 +8,7 @@ using KrigAgent;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace WaterUseServices
+namespace KrigServices
 {
     public class Startup
     {
@@ -33,7 +33,7 @@ namespace WaterUseServices
         {
             // Add framework services
 
-            services.AddScoped<IKrigAgent, KrigServiceAgent>();
+            services.AddScoped<IKrigAgent, Krig>();
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
                                                                  .AllowAnyMethod()

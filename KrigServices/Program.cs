@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace WaterUseServices
+namespace KrigServices
 {
     public class Program
     {
