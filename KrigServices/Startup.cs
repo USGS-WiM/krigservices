@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
+using System.Linq;
 using KrigAgent;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using System.Collections.Generic;
 
 namespace KrigServices
 {
@@ -33,7 +34,12 @@ namespace KrigServices
         {
             // Add framework services
 
-            services.AddScoped<IKrigAgent, Krig>();
+            services.AddScoped<IKrigAgent, Krig>((ctx)=> {
+                var data = Configuration.GetSection("resources").GetChildren()
+                                .Select(item => new KeyValuePair<string, string>(item.Key, item.Value))
+                                .ToDictionary(x => x.Key, x => x.Value);
+                return new Krig(data);
+            });
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
                                                                  .AllowAnyMethod()
