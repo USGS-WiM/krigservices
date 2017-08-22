@@ -25,6 +25,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using KrigAgent.Resources;
 using System.Linq;
+using KrigServices.ServiceAgents;
 
 namespace KrigServices.Controllers
 {
@@ -63,9 +64,8 @@ namespace KrigServices.Controllers
 
                     if (!string.Equals(wkid.Trim(), agent.SR.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
-                        //sa = new ProjectionServiceAgent();
-                        //if (!sa.ProjectPoint(ref x, ref Y, wkid, thisKrig.SR)) throw new Exception("Failed to project point. try passing in sr of " + thisKrig.SR);
-                        return new BadRequestObjectResult("Work in process... Please pass x,y in as " + agent.SR);
+                        var sa = new ProjectionServiceAgent("https://gis.wim.usgs.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer/");
+                        if (!sa.ProjectPointAsync(ref x, ref y, wkid, agent.SR)) throw new Exception("Failed to project point. try passing in sr of " + agent.SR);
                     }//end if
 
                     if (agent.IndexGages.Count < 1) return new BadRequestObjectResult(new Error(errorEnum.e_error, "No Index Gages"));
