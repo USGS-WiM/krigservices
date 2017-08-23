@@ -1,15 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrigServices", "KrigServices\KrigServices.csproj", "{AD1BF823-EC36-490E-B101-D80A9E899F8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrigServices", "KrigServices\KrigServices.csproj", "{EA7C0EBD-A975-4999-A7C3-7FDBC03985F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta", "..\openrasta-2.1\src\openrasta-core\src\OpenRasta\OpenRasta.csproj", "{CF1F67E2-7E23-4449-B4EF-9D6AF8BDFE4F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Hosting.AspNet", "..\openrasta-2.1\src\openrasta-aspnet\src\OpenRasta.Hosting.AspNet\OpenRasta.Hosting.AspNet.csproj", "{FE290BB8-9CB4-454E-89BE-E047674BB34F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.WebForms", "..\openrasta-2.1\src\openrasta-aspnet\src\OpenRasta.Codecs.WebForms\OpenRasta.Codecs.WebForms.csproj", "{B4EC606E-48A7-4653-AD88-3614A5FF360A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrigAgent", "KrigAgent\KrigAgent.csproj", "{9C566B19-1349-42EE-9974-9DC2526ECF92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD1BF823-EC36-490E-B101-D80A9E899F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD1BF823-EC36-490E-B101-D80A9E899F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD1BF823-EC36-490E-B101-D80A9E899F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD1BF823-EC36-490E-B101-D80A9E899F8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF1F67E2-7E23-4449-B4EF-9D6AF8BDFE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF1F67E2-7E23-4449-B4EF-9D6AF8BDFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF1F67E2-7E23-4449-B4EF-9D6AF8BDFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF1F67E2-7E23-4449-B4EF-9D6AF8BDFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE290BB8-9CB4-454E-89BE-E047674BB34F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE290BB8-9CB4-454E-89BE-E047674BB34F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE290BB8-9CB4-454E-89BE-E047674BB34F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE290BB8-9CB4-454E-89BE-E047674BB34F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4EC606E-48A7-4653-AD88-3614A5FF360A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4EC606E-48A7-4653-AD88-3614A5FF360A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4EC606E-48A7-4653-AD88-3614A5FF360A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4EC606E-48A7-4653-AD88-3614A5FF360A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA7C0EBD-A975-4999-A7C3-7FDBC03985F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA7C0EBD-A975-4999-A7C3-7FDBC03985F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA7C0EBD-A975-4999-A7C3-7FDBC03985F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA7C0EBD-A975-4999-A7C3-7FDBC03985F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C566B19-1349-42EE-9974-9DC2526ECF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C566B19-1349-42EE-9974-9DC2526ECF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C566B19-1349-42EE-9974-9DC2526ECF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C566B19-1349-42EE-9974-9DC2526ECF92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
