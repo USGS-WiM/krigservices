@@ -377,8 +377,8 @@ namespace KrigAgent
             {
                 foreach (KrigIndexSite site in IndexGages)
                 {
-                    double varx = Math.Pow((site.LocationX - X), 2);
-                    double vary = Math.Pow((site.LocationY - Y), 2);
+                    double varx = Math.Pow((site.X - X), 2);
+                    double vary = Math.Pow((site.Y - Y), 2);
 
                     site.DistanceToUngagedPoint = Math.Sqrt(varx + vary) * getUnitConversion();
                 }//next gage
@@ -472,7 +472,7 @@ namespace KrigAgent
                 {
 
                     gage = new KrigIndexSite(item[0], item[1], Convert.ToDouble(item[7]),
-                                                Convert.ToDouble(item[6]), Convert.ToDouble(item[8]),
+                                                Convert.ToDouble(item[6]), this.SR, Convert.ToDouble(item[8]),
                                                 Convert.ToDouble(item[2]), Convert.ToDouble(item[3]),
                                                 GetCorrelatedGages(item[0], correlationFile));
 

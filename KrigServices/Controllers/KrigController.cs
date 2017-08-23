@@ -36,22 +36,22 @@ namespace KrigServices.Controllers
         {}
         #region METHODS
         [HttpGet()]
-        public async Task<IActionResult> Get([FromQuery] string state, [FromQuery] double x, [FromQuery] double y, [FromQuery] string wkid, [FromQuery] Int32 count = 5)
+        public async Task<IActionResult> Get([FromQuery] string state, [FromQuery] double x, [FromQuery] double y, [FromQuery] string srid, [FromQuery] Int32 count = 5)
             {
                 //ProjectionServiceAgent sa = null;
                 List<Site> gageList = null;
 
                 try
                 {
-                    if (x == 0 || y == 0 || String.IsNullOrEmpty(wkid)|| String.IsNullOrEmpty(state))                
+                    if (x == 0 || y == 0 || String.IsNullOrEmpty(srid) || String.IsNullOrEmpty(state))                
                         return new BadRequestObjectResult("One or more of the parameters are invalid.");
 
                     if (!agent.Load(state, count)) throw new Exception("Krig failed to load.");
 
-                    if (!string.Equals(wkid.Trim(), agent.SR.Trim(), StringComparison.OrdinalIgnoreCase))
+                    if (!string.Equals(srid.Trim(), agent.SR.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
                         var sa = new ProjectionServiceAgent("https://gis.wim.usgs.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer/");
-                        if (!sa.ProjectPointAsync(ref x, ref y, wkid, agent.SR)) throw new Exception("Failed to project point. try passing in sr of " + agent.SR);
+                        if (!sa.ProjectPointAsync(ref x, ref y, srid, agent.SR)) throw new Exception("Failed to project point. try passing in sr of " + agent.SR);
                     }//end if
 
                     if (agent.IndexGages.Count < 1) return new BadRequestObjectResult(new Error(errorEnum.e_error, "No Index Gages"));
@@ -60,8 +60,9 @@ namespace KrigServices.Controllers
 
                     gageList = agent.TopCorrelatedGages.Select(g => new Site(g.Value.ID,
                                                                              g.Value.Name,
-                                                                             g.Value.LocationX,
-                                                                             g.Value.LocationY,
+                                                                             g.Value.X,
+                                                                             g.Value.Y,
+                                                                             g.Value.srid,
                                                                              g.Value.DrainageArea,
                                                                              g.Key
                                                                              )).ToList();

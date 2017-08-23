@@ -34,28 +34,30 @@ namespace KrigAgent.Resources
         
         public String ID { get; set; }
         public String Name { get; set; }
-        public Double LocationX { get; set; }
-        public Double LocationY { get; set; }
+        public Double X { get; set; }
+        public Double Y { get; set; }
+        public String srid { get; set; }
         public Double DrainageArea { get; set; }
         public Double Correlation { get; set; }
         #endregion
         #region Constructor
         public Site()
-            : this(String.Empty, String.Empty, Double.NaN, Double.NaN, Double.NaN)
+            : this(String.Empty, String.Empty, Double.NaN, Double.NaN, "", Double.NaN)
         { }// end Site
 
         public Site(String SID, String name, double X,
-                    double Y, double DA)
-            : this(SID, name, X, Y, DA, Double.NaN)
+                    double Y, string srid, double DA)
+            : this(SID, name, X, Y, srid, DA, Double.NaN)
         { }//end Site
 
         public Site(String SID, String name, double X,
-            double Y, double DA, Double correlation)
+            double Y, string srid, double DA,  Double correlation)
         {
             this.ID = SID;
             this.Name = name;
-            this.LocationX = X;
-            this.LocationY = Y;
+            this.X = X;
+            this.Y = Y;
+            this.srid = srid;
             this.DrainageArea = DA;
             this.Correlation = correlation;
 
@@ -72,12 +74,12 @@ namespace KrigAgent.Resources
         #endregion
         #region Constructor
         public KrigIndexSite()
-            : this(String.Empty, String.Empty, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, null)
+            : this(String.Empty, String.Empty, Double.NaN, Double.NaN,"", Double.NaN, Double.NaN, Double.NaN, null)
         { }
         public KrigIndexSite(String id, String name, Double X,
-                        Double Y, Double DA, Double sigma,
+                        Double Y, string srid, Double DA, Double sigma,
                         Double rangeParam, IDictionary<String, Double> correlationList)
-            : base(id, name, X, Y, DA)
+            : base(id, name, X, Y,srid, DA)
         {
             this.partialSillSigma = sigma;
             this.rangeParameterA = rangeParam;
