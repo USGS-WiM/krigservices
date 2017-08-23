@@ -40,19 +40,19 @@ namespace KrigServices
                                 .ToDictionary(x => x.Key, x => x.Value);
                 return new Krig(data);
             });
+
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
                                                                  .AllowAnyMethod()
                                                                  .AllowAnyHeader()
                                                                  .AllowCredentials());
             });
+
             services.AddMvc(options => { options.RespectBrowserAcceptHeader = true; })
                                 .AddXmlSerializerFormatters()
                                 .AddXmlDataContractSeria‌​lizerFormatters()
                                 .AddJsonOptions(options => loadJsonOptions(options));
-        }
-
-     
+        }     
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -74,13 +74,6 @@ namespace KrigServices
             options.SerializerSettings.TypeNameAssemblyFormatHandling = Newtonsoft.Json.TypeNameAssemblyFormatHandling.Simple;
             options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.None;
         }
-        private void ConfigureRoute(IRouteBuilder routeBuilder)
-        {
-            //login
-            //routeBuilder.MapRoute("login", "{controller = Manager}/{action = GetLoggedInUser}");
-        }
         #endregion
-
-
     }
 }

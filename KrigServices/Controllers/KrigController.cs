@@ -35,20 +35,6 @@ namespace KrigServices.Controllers
         public KrigController(IKrigAgent sa) : base(sa)
         {}
         #region METHODS
-        [HttpGet("test")]
-        public async Task<IActionResult> Get()
-        {
-            try
-            {
-                return Ok("This is an example result");
-            }
-            catch (Exception ex)
-            {
-                return await HandleExceptionAsync(ex);
-            }
-
-        }
-
         [HttpGet()]
         public async Task<IActionResult> Get([FromQuery] string state, [FromQuery] double x, [FromQuery] double y, [FromQuery] string wkid, [FromQuery] Int32 count = 5)
             {
