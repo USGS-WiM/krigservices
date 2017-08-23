@@ -90,6 +90,5 @@ namespace KrigServices.ServiceAgents
         }
 
         #endregion
-
     }
 }
