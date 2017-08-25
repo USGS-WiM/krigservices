@@ -1,6 +1,7 @@
 ﻿using System;
 using WiM.Utilities.ServiceAgent;
-
+using KrigServices.Resources;
+using System.Collections.Generic;
 
 namespace KrigServices.ServiceAgents
 {
@@ -8,11 +9,13 @@ namespace KrigServices.ServiceAgents
     {
         #region Properties
         public bool HasGeometry { get; private set; }
+        public Dictionary<string, string> resources{ get; set; }
         #endregion
         #region Constructors
-        public ProjectionServiceAgent(string baseURL)
-            : base(baseURL)
+        public ProjectionServiceAgent(ProjectionSettings settings)
+            : base(settings.baseurl)
         {
+            this.resources = settings.resources;
             HasGeometry = false;
         }
         #endregion
@@ -57,7 +60,7 @@ namespace KrigServices.ServiceAgents
             switch (sType)
             {
                 case serviceType.e_projection:
-                    uri = "project?inSR={0}&outSR={1}&geometries={{geometries:[{{x:{2},y:{3}}}],geometryType:esriGeometryPoint}}&f=pjson";
+                    uri = resources["projection"];
                     break;
             }
 
