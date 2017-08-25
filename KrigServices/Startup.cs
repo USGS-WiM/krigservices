@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using KrigAgent;
+using KrigServices.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System.Collections.Generic;
@@ -32,10 +33,12 @@ namespace KrigServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services
+            //add functionality to inject IOptions<T>
+            services.AddOptions();
+            services.Configure<ProjectionSettings>(Configuration.GetSection("ProjectionSettings"));
 
             services.AddScoped<IKrigAgent, Krig>((ctx)=> {
-                var data = Configuration.GetSection("resources").GetChildren()
+                var data = Configuration.GetSection("KrigResources").GetChildren()
                                 .Select(item => new KeyValuePair<string, string>(item.Key, item.Value))
                                 .ToDictionary(x => x.Key, x => x.Value);
                 return new Krig(data);

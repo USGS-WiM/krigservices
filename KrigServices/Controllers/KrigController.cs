@@ -26,14 +26,19 @@ using System.Collections.Generic;
 using KrigAgent.Resources;
 using System.Linq;
 using KrigServices.ServiceAgents;
+using Microsoft.Extensions.Options;
+using KrigServices.Resources;
 
 namespace KrigServices.Controllers
 {
     [Route("[controller]")]
     public class KrigController : KrigControllerBase
     {
-        public KrigController(IKrigAgent sa) : base(sa)
-        {}
+        private ProjectionSettings projectionSettings { get; set; }
+        public KrigController(IKrigAgent sa, IOptions<ProjectionSettings> resource) : base(sa)
+        {
+            this.projectionSettings = resource.Value;
+        }
         #region METHODS
         [HttpGet()]
         public async Task<IActionResult> Get([FromQuery] string state, [FromQuery] double x, [FromQuery] double y, [FromQuery] string srid, [FromQuery] Int32 count = 5)
@@ -50,7 +55,7 @@ namespace KrigServices.Controllers
 
                     if (!string.Equals(srid.Trim(), agent.SR.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
-                        var sa = new ProjectionServiceAgent("https://gis.wim.usgs.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer/");
+                        var sa = new ProjectionServiceAgent(this.projectionSettings);
                         if (!sa.ProjectPointAsync(ref x, ref y, srid, agent.SR)) throw new Exception("Failed to project point. try passing in sr of " + agent.SR);
                     }//end if
 

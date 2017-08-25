@@ -50,7 +50,7 @@ namespace KrigAgent
         public string SR { get; private set; }
         public Int32 ReturnCount { get; private set; }
         private const Double c_meter2kilometers = 0.001;
-        private Dictionary<string, string> files;
+        private Dictionary<string, string> Resources;
         #endregion
         #region Collections & Dictionaries
         #region IndexGages
@@ -87,7 +87,7 @@ namespace KrigAgent
         #region Constructor
         public Krig(Dictionary<string, string> files)
         {
-            this.files = files;
+            this.Resources = files;
         }
         #endregion
         #region Methods
@@ -494,16 +494,16 @@ namespace KrigAgent
                 switch (filetype)
                 {
                     case fileTypeEnum.e_distanceMatrix:
-                        result = this.files["distancematrixfile"];
+                        result = this.Resources["distancematrixfile"];
                         break;
                     case fileTypeEnum.e_gageProperties:
-                        result = this.files["propertiesfile"];
+                        result = this.Resources["propertiesfile"];
                         break;
                     case fileTypeEnum.e_gageCorrelations:
-                        result = this.files["correlationfile"];
+                        result = this.Resources["correlationfile"];
                         break;
                     case fileTypeEnum.e_stateRequiredSRC:
-                        result = this.files["srcfile"];
+                        result = this.Resources["srcfile"];
                         break;
                 }//end switch
                 return result;
