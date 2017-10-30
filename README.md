@@ -71,8 +71,11 @@ In the spirit of open source, please cite any re-use of the source code stored i
 
 ## Acknowledgments
 
-* [Network-Linked Data Index](https://cida.usgs.gov/nldi/about)
-* [GeoJson.Net](https://github.com/GeoJSON-Net/GeoJSON.Net)
+* Archfield S.A. and Vogel R.M 2010 Map correlation method: Selection of a reference streamgage
+    to estimate daily streamflow at ungaged catchments, Water Resources Research Vol. 46
+* Isaaks, E. H., and R. M. Srivastava (1989), An Introduction to Applied
+    Geostatistics, 1st ed., Oxford Univ. Press, New York. pg284-285, 295
+    
 
 ## About WIM
 
