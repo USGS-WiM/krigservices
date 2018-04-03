@@ -1,0 +1,1 @@
+The sites resource represents the site correlation from the krig.

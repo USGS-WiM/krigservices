@@ -37,11 +37,10 @@ namespace KrigAgent
         Int32 ReturnCount { get; }
         List<KrigIndexSite> IndexGages { get; }
         Dictionary<double, KrigIndexSite> TopCorrelatedGages { get;}
-
         //methods
         Boolean Load(string state, Int32 returnCount);
         Boolean Execute(double x, double y);
-
+        List<string> AvailableResources();
     }
     public class Krig : IKrigAgent
     {
@@ -117,6 +116,11 @@ namespace KrigAgent
                 return false;
             }
 
+        }
+        public List<string> AvailableResources()
+        {
+            String AssetDataLocation = Path.Combine(new String[] { AppContext.BaseDirectory, "Assets", "Data" });
+            return Directory.GetDirectories(AssetDataLocation).Select(x => x.Remove(0, AssetDataLocation.Length+1)).ToList();
         }
         #endregion
         #region HELPER METHODS

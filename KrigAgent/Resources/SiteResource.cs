@@ -36,7 +36,7 @@ namespace KrigAgent.Resources
         public String Name { get; set; }
         public Double X { get; set; }
         public Double Y { get; set; }
-        public String srid { get; set; }
+        public String crs { get; set; }
         public Double DrainageArea { get; set; }
         public Double Correlation { get; set; }
         #endregion
@@ -46,18 +46,18 @@ namespace KrigAgent.Resources
         { }// end Site
 
         public Site(String SID, String name, double X,
-                    double Y, string srid, double DA)
-            : this(SID, name, X, Y, srid, DA, Double.NaN)
+                    double Y, string crs, double DA)
+            : this(SID, name, X, Y, crs, DA, Double.NaN)
         { }//end Site
 
         public Site(String SID, String name, double X,
-            double Y, string srid, double DA,  Double correlation)
+            double Y, string crs, double DA,  Double correlation)
         {
             this.ID = SID;
             this.Name = name;
             this.X = X;
             this.Y = Y;
-            this.srid = srid;
+            this.crs = crs;
             this.DrainageArea = DA;
             this.Correlation = correlation;
 
@@ -77,9 +77,9 @@ namespace KrigAgent.Resources
             : this(String.Empty, String.Empty, Double.NaN, Double.NaN,"", Double.NaN, Double.NaN, Double.NaN, null)
         { }
         public KrigIndexSite(String id, String name, Double X,
-                        Double Y, string srid, Double DA, Double sigma,
+                        Double Y, string crs, Double DA, Double sigma,
                         Double rangeParam, IDictionary<String, Double> correlationList)
-            : base(id, name, X, Y,srid, DA)
+            : base(id, name, X, Y,crs, DA)
         {
             this.partialSillSigma = sigma;
             this.rangeParameterA = rangeParam;

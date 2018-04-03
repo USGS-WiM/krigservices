@@ -9,6 +9,9 @@ using KrigServices.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System.Collections.Generic;
+using WiM.Services.Resources;
+using WiM.Services.Analytics;
+using WiM.Utilities.ServiceAgent;
 
 namespace KrigServices
 {
@@ -35,7 +38,9 @@ namespace KrigServices
         {
             //add functionality to inject IOptions<T>
             services.AddOptions();
+            services.AddScoped<IAnalyticsAgent, WiM.Utilities.ServiceAgent.GoogleAnalyticsAgent>((gaa) => new GoogleAnalyticsAgent(Configuration["AnalyticsKey"]));
             services.Configure<ProjectionSettings>(Configuration.GetSection("ProjectionSettings"));
+            services.Configure<APIConfigSettings>(Configuration.GetSection("APIConfigSettings"));
 
             services.AddScoped<IKrigAgent, Krig>((ctx)=> {
                 var data = Configuration.GetSection("KrigResources").GetChildren()

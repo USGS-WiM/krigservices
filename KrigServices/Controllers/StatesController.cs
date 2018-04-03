@@ -26,32 +26,32 @@ using System.Collections.Generic;
 using KrigAgent.Resources;
 using System.Linq;
 using KrigServices.ServiceAgents;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.Options;
+using KrigServices.Resources;
 
 namespace KrigServices.Controllers
 {
     [Route("[controller]")]
-    public class ConfigurationController:Controller
+    public class StatesController : KrigControllerBase
     {
-        private readonly IActionDescriptorCollectionProvider _provider;
-
-        public ConfigurationController(IActionDescriptorCollectionProvider provider)
+        public StatesController(IKrigAgent sa) : base(sa)
         {
-            _provider = provider;
         }
-
+        #region METHODS
         [HttpGet()]
-        public IActionResult GetRoutes()
-        {
-            var routes = _provider.ActionDescriptors.Items.Where(a=>a.ActionConstraints !=null && a.RouteValues["Action"] != "GetRoutes").Select(x => new {
-                Method = x.RouteValues["Action"],
-                uri = x.AttributeRouteInfo.Template,
-                Properties = x.Parameters.Where(p=>p.BindingInfo.BindingSource.DisplayName == "Query"). Select(p=> new {
-                    Name = p.Name,
-                    Type = p.ParameterType.Name
-                })
-            }).ToList();
-            return Ok(routes);
-        }
+        public async Task<IActionResult> Get()
+            {
+                try
+                {
+                    return Ok(agent.AvailableResources());
+                }
+                catch (Exception ex)
+                {
+                    return HandleException(ex);
+                }
+            }
+        #endregion
+        #region HELPER METHODS
+        #endregion
     }
 }
