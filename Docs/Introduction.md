@@ -42,3 +42,28 @@ Every resource is exposed as a URL and follows the outlined pattern described be
 * A REST Query URL test tool that builds an example url, based on the given input parameter values.
 * And an example response from the REST Query.
 
+## Web Service Request Example
+Web service request can be performed using most HTTP client libraries. The following examples will be illustrated using jQuery's `$.ajax()` function to represent a typical request performed by a client application.
+```
+$.ajax({
+		url: uri,
+		type: methodtype,
+		contentType: "application/json",
+		accepts: "application/json",
+		cache: false,
+		dataType: 'json',
+		data: JSON.stringify(data),
+		success: function(resultData) { 
+            var results = resultData;
+        },
+		error: function(jqXHR) {
+			console.log("ajax error " + jqXHR.status);
+		}
+	});
+
+ ```
+ Where:  
+* `uri` is the string containing the URL to which the request is sent,
+* `data` is a plain object or string that is sent to the server with the request, 
+* `methodtype` is the HTTP request-response method, such as GET, PUT, POST, or DELETE,
+* and there are 2 callback functions: `success` and `error`, which will be invoked once the asynchronous function associated when the request ends with either the result or an error.
