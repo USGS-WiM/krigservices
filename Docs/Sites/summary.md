@@ -1,1 +1,1 @@
-The sites resource represents the site correlation from the krig.
+The sites resource represents the correlated sites from the krig routine. Resultants return the site and its relative correlation ranking.
