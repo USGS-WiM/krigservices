@@ -40,19 +40,19 @@ namespace KrigServices.Controllers
             this.projectionSettings = resource.Value;
         }
         #region METHODS
-        [HttpGet("{state}/krig")]
+        [HttpGet("{region}/krig")]
         [HttpGet("/krig")]
-        public async Task<IActionResult> Get(string state, double x, double y, string crs, [FromQuery] Int32 count = 5)
+        public async Task<IActionResult> Get(string region, double x, double y, string crs, [FromQuery] Int32 count = 5)
             {
                 //ProjectionServiceAgent sa = null;
                 List<Site> gageList = null;
 
                 try
                 {
-                    if (x == 0 || y == 0 || String.IsNullOrEmpty(crs) || String.IsNullOrEmpty(state))                
+                    if (x == 0 || y == 0 || String.IsNullOrEmpty(crs) || String.IsNullOrEmpty(region))                
                         return new BadRequestObjectResult("One or more of the parameters are invalid.");
 
-                    if (!agent.Load(state, count)) throw new Exception("Krig failed to load.");
+                    if (!agent.Load(region, count)) throw new Exception("Krig failed to load.");
 
                     if (!string.Equals(crs.Trim(), agent.SR.Trim(), StringComparison.OrdinalIgnoreCase))
                     {

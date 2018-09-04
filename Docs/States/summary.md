@@ -1,1 +1,0 @@
-The states resource represents the state/regions available from the krig services.

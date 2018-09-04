@@ -7,7 +7,7 @@ Table 1. Example of Site Resource services parameter names and values.
 
 | Parameter     | Description   | Value |
 | ------------- |:-------------:| -----:|
-| State     | 2 digit implemented State abbreviation | IA    |
+| Region     | 2 digit implemented region abbreviation | IA    |
 | X         | x location in decimal degrees |-93.5786|
 | Y         | y location in decimal degrees |42.1041 |
 | crs       | ESPSG spatial reference code  |    4326 |

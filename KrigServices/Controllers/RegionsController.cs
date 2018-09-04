@@ -32,9 +32,9 @@ using KrigServices.Resources;
 namespace KrigServices.Controllers
 {
     [Route("[controller]")]
-    public class StatesController : KrigControllerBase
+    public class RegionsController : KrigControllerBase
     {
-        public StatesController(IKrigAgent sa) : base(sa)
+        public RegionsController(IKrigAgent sa) : base(sa)
         {
         }
         #region METHODS
