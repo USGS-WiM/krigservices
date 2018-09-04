@@ -1,0 +1,1 @@
+The regions resource lists the regions/states available from the krig services.
