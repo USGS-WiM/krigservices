@@ -29,8 +29,9 @@ No testing files are currently available for this repository
 see [link](https://docs.microsoft.com/en-us/aspnet/core/publishing/iis?tabs=aspnetcore2x)  for detailed instructions for deploying to windows server.
 
 * Download and install [windows server hosting bundle](https://www.microsoft.com/net/download/core#/runtime) on the server.
-* Create new application pool specifying the .netCLR version property to "No Managed Code".
-
+* Reset IIS using command line with elevated privileges `IISRESET`
+* Create new application pool specifying the .netCLR version property to "No Managed Code". 
+ 
 ## Deployment on Linux
 
 see [link](https://docs.microsoft.com/en-us/aspnet/core/publishing/apache-proxy) for detailed instructions for deploying to linux server
