@@ -5,7 +5,7 @@
     "description": "krig REST services. Used to find the most correlated gage.",
     "version": "V1.0.1",
     "statusOptionsURL":"https://github.com/GSA/code-gov-web/blob/master/src/assets/schemas/2.0.0.json#L144-L152",
-	"status": "preliminary",	
+	"status": "Production",	
 
     "permissions": {
       "usageType": "openSource",
