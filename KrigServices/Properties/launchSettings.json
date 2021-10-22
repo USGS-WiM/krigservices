@@ -24,10 +24,13 @@
       "applicationUrl": "http://localhost:53813"
     },
     "KrigServices": {
-      "commandName": "IISExpress",
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "apiconfig",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:53813"
     }
   }
 }
