@@ -22,6 +22,15 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:53813"
+    },
+    "KrigServices": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "apiconfig",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:53813"
     }
   }
 }

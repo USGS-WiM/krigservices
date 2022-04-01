@@ -3,9 +3,9 @@
     "name": "krigservices",
     "organization": "U.S. Geological Survey",
     "description": "krig REST services. Used to find the most correlated gage.",
-    "version": "v0.0.0",
+    "version": "V1.0.1",
     "statusOptionsURL":"https://github.com/GSA/code-gov-web/blob/master/src/assets/schemas/2.0.0.json#L144-L152",
-	"status": "preliminary",	
+	"status": "Production",	
 
     "permissions": {
       "usageType": "openSource",
@@ -17,7 +17,7 @@
       ]
     },
 
-    "homepageURL": "https://wim.usgs.gov",
+    "homepageURL": "https://streamstats.usgs.gov",
     "downloadURL": "https://github.com/USGS-WiM/krigservices/archive/master.zip",
     "disclaimerURL": "https://github.com/USGS-WiM/krigservices/blob/master/DISCLAIMER.md",
     "repositoryUrl": "https://github.com/USGS-WiM/krigservices",
@@ -27,8 +27,10 @@
 
     "tags": [
       "krig",
+      "streamstats",
       "Services",
-	  "REST"
+	  "REST",
+	    "geostatistics"
     ],
 
     "languages": [
@@ -41,7 +43,7 @@
     },
 
     "date": {
-      "metadataLastUpdated": "2017-10-25"
+      "metadataLastUpdated": "2019-04-19"
     }
   }
 ]
